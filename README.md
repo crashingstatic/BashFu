@@ -3,10 +3,10 @@ Various bash commands that I have found useful over the years.
 LICENSE: Let's be real, most of this is ripped from StackExchange. You know it. I know it. The original authors would know it. Use the one-liners accordingly.  
   
 #### Multiline commenting in a bash script
-: &lt;&lt;'END-COMMENT'
-sometext or commands to be commented out
-END_COMMENT
-
+: &lt;&lt;'END-COMMENT'  
+sometext or commands to be commented out  
+END_COMMENT  
+  
 cewl -c -d 3 -o WordList https://en.wikipedia.org/wiki/Easter
 #### Goto wikipedia and download everything related to Easter with a link depth of 3. Convert all of that to a wordlist that can then be used by Hashcat
 
