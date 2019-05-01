@@ -1,12 +1,13 @@
 # BashFu
 Various bash commands that I have found useful over the years.  
+View "RAW" to be able to copy and paste what you need. GitHub Markup and bash syntax don't play nice.
 LICENSE: Let's be real, most of this is ripped from StackExchange. You know it. I know it. The original authors would know it. Use the one-liners accordingly.  
-  
+
 #### Multiline commenting in a bash script
-: &lt;&lt;'END-COMMENT'  
-sometext or commands to be commented out  
-END_COMMENT  
-  
+: <<'END-COMMENT'
+sometext or commands to be commented out
+END_COMMENT
+
 cewl -c -d 3 -o WordList https://en.wikipedia.org/wiki/Easter
 #### Goto wikipedia and download everything related to Easter with a link depth of 3. Convert all of that to a wordlist that can then be used by Hashcat
 
@@ -32,8 +33,8 @@ ssh -t usrnm@anyIP "bash --noprofile"
 #### Useful trick for escaping restricted shells on ssh login
 
 #### DNS zone transfer
-dig -axfr @&lt;DNS you are querying> &lt;target>
-dig @&lt;DNS server to query> &lt;target domain> -t AXFR
+dig -axfr @<DNS you are querying> <target>
+dig @<DNS server to query> <target domain> -t AXFR
 
 Alt+SysRq+R+E+I+S+U+B
 #### Safe shutdown in case of a system hang. It's BUSIER spelled backwards.
@@ -100,7 +101,7 @@ fuser -k filename
 find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
 #### dup finder works by checking size first, then md5 hash
 
-mplayer -ao pcm -vo null -vc dummy -dumpaudio -dumpfile &lt;output-file> &lt;input-file>
+mplayer -ao pcm -vo null -vc dummy -dumpaudio -dumpfile <output-file> <input-file>
 #### rip audio from a video file
 
 cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
@@ -115,7 +116,7 @@ mount /path/to/file.iso /mnt/cdrom -oloop
 wget -r -l1 --no-parent -nH -nd -P/tmp -A".gif,.jpg" http://example.com/images
 #### Download all images from a site
 
-knock &lt;host> 3000 4000 5000 && ssh -p &lt;port> user@host && knock &lt;host> 5000 4000 3000
+knock <host> 3000 4000 5000 && ssh -p <port> user@host && knock <host> 5000 4000 3000
 #### Port Knocking!
 #### Knock on ports to open a port to a service (ssh for example) and knock again to close the port. You have to install knockd.
 #### See example config file below.
@@ -146,7 +147,7 @@ lynx -cmd_log yourfile
 tar c folder_to_encrypt | openssl enc -aes-256-cbc -e > secret.tar.enc
 #### Tar's a directory and then encypts it using openssl
 #### Decrypt it using:
-openssl enc -aes-256-cbc -d &lt; secret.tar.enc | tar x
+openssl enc -aes-256-cbc -d < secret.tar.enc | tar x
 
 read -sn 1 -p "Press any key to continue..."
 #### Useful for prompting in bash scripts
@@ -171,7 +172,7 @@ python -m SimpleHTTPServer
 #### NOTE: If an "index.html" file is present in the directory, SimpleServer will serve t$
 
 #### type partial command, kill this command, check something you forgot, yank the command, resume typing.
-&lt;ctrl+u> [...] &lt;ctrl+y>
+<ctrl+u> [...] <ctrl+y>
 
 #### Mount a temporary ram partition
 #### Makes a partition in ram which is useful if you need a temporary working space as read/write access is fast.
@@ -183,7 +184,7 @@ mount -t [TYPE] -o size=[SIZE] [FSTYPE] [MOUNTPOINT]
 find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
 
 #### Remove duplicate entries in a file without sorting.
-awk '!x[$0]++' &lt;file>
+awk '!x[$0]++' <file>
 
 #### replace spaces in filenames with underscores in the current directory
 rename 'y/ /_/' *
